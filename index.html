@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="./support.js"></script>
-</head>
+  <title>Hans Soni - Portfolio</title>
+  
+  <!-- CSS Stylesheet Link -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Scripts -->
+  <script src="./support.js" defer></script>
+  <script src="_ds/organic-986f50e1-a2d6-49a9-92f4-4eaa395409fc/_ds_bundle.js" defer></script>
+  
+  <style>
+    body {
+      margin: 0;
+      transition: background-color .4s ease, color .4s ease;
+    }
 
+    @keyframes floatA {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -22px; }
+    }
+
+    @keyframes floatB {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 14px 10px; }
+    }
+
+    @keyframes floatC {
+      0%, 100% { translate: 0 0; }
+      50% { translate: -10px -14px; }
+    }
+
+    @keyframes floatD {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 8px -18px; }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: .5; }
+      50% { opacity: .85; }
+    }
+
+    @keyframes spinSlow {
+      from { rotate: 0deg; }
+      to { rotate: 360deg; }
+    }
+
+    [data-theme='dark'] {
+      --color-bg: #201e1d;
+      --color-surface: #2c2925;
+      --color-text: #f5ead8;
+      --color-divider: color-mix(in srgb, #f5ead8 18%, transparent);
+      --color-accent: #f6a06b;
+      --color-accent-2: #aebf92;
+      --color-accent-100: #402310;
+      --color-accent-800: #ffe1d0;
+      --color-accent-2-100: #272e1b;
+      --color-accent-2-800: #e1eecc;
+      --color-neutral-100: #3a3630;
+      --color-neutral-800: #f4efe6;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .35);
+      --shadow-md: 0 6px 18px rgba(0, 0, 0, .4);
+      --shadow-lg: 0 20px 48px rgba(0, 0, 0, .5);
+    }
+  </style>
+</head>
 <body>
   <x-dc>
     <helmet>
