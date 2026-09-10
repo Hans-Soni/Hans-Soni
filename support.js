@@ -1,11 +1,8 @@
-// GENERATED from dc-runtime/src/*.ts — do not edit. Rebuild with `cd dc-runtime && bun run build`.
 "use strict";
 (() => {
   var __defProp = Object.defineProperty;
   var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
   var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-
-  // src/react.ts
   function getReact() {
     const R = window.React;
     if (!R) throw new Error("dc-runtime: window.React is not available yet");
@@ -20,7 +17,6 @@
     ...args
   ));
 
-  // src/parse.ts
   function parseDcDocument(doc) {
     const dc = doc.querySelector("x-dc");
     if (!dc) return null;
@@ -82,7 +78,6 @@
     return base.replace(/\.dc\.html$/, "").replace(/\.html?$/, "") || "Root";
   }
 
-  // src/boot.ts
   var BASE_CSS = `
     .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
       border:1px solid color-mix(in srgb,currentColor 50%,transparent);
@@ -199,7 +194,6 @@
     return rootName;
   }
 
-  // src/expr.ts
   var IDENT_RE = /^[A-Za-z_$][A-Za-z0-9_$]*/;
   var NUMBER_RE = /^-?\d+(\.\d+)?$/;
   function resolve(vals, src) {
@@ -293,7 +287,6 @@
     return cur;
   }
 
-  // src/encode.ts
   var CAMEL_ATTR = "sc-camel-";
   var INLINE_TEXT_TAGS = new Set(
     "a abbr b bdi bdo br cite code del dfn em i ins kbd mark q s samp small span strike strong sub sup u var wbr".split(
@@ -411,7 +404,6 @@
     return () => raw;
   }
 
-  // src/compile.ts
   function collectProps(node, kind, host) {
     const propGetters = [];
     const pseudoClasses = [];
@@ -813,7 +805,6 @@
     };
   }
 
-  // src/logic.ts
   var StreamableLogic = class {
     constructor(props) {
       __publicField(this, "props");
@@ -1132,14 +1123,12 @@
     };
   }
 
-  // src/bundled.ts
   function bundledBlob(url) {
     const blobs = window.__resourceBlobs;
     const b = blobs ? blobs[url.split("#")[0]] : void 0;
     return b instanceof Blob ? b : null;
   }
 
-  // src/cdn.ts
   var REACT_URL = "https://unpkg.com/react@18.3.1/umd/react.production.min.js";
   var REACT_SRI = "sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z";
   var REACT_DOM_URL = "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js";
@@ -1152,7 +1141,6 @@
     return typeof v === "string" && v ? { src: v } : { src: url, integrity: sri };
   }
 
-  // src/external.ts
   var isCustomElementName = (n) => !n.includes(".") && n.includes("-");
   function isRenderableType(g) {
     if (typeof g === "function") return !isElementClass(g);
@@ -1353,7 +1341,6 @@
     }
   }
 
-  // src/atomics.ts
   var ATOMIC_CSS = (
     // layout
     ".fx{display:flex}.col{display:flex;flex-direction:column}.grid{display:grid}.ac{align-items:center}.jc{justify-content:center}.jb{justify-content:space-between}.f1{flex:1}.noshrink{flex-shrink:0}.wrap{flex-wrap:wrap}.fw5{font-weight:500}.fw6{font-weight:600}.fw7{font-weight:700}.fw8{font-weight:800}.fs11{font-size:11px}.fs12{font-size:12px}.fs13{font-size:13px}.fs14{font-size:14px}.fs15{font-size:15px}.fs16{font-size:16px}.fs20{font-size:20px}.fs22{font-size:22px}.upper{text-transform:uppercase}.tc{text-align:center}.nowrap{white-space:nowrap}.gap8{gap:8px}.gap10{gap:10px}.gap12{gap:12px}.gap16{gap:16px}.gap24{gap:24px}.m0{margin:0}.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mb8{margin-bottom:8px}.mb12{margin-bottom:12px}.mb16{margin-bottom:16px}.posrel{position:relative}.posabs{position:absolute}.round{border-radius:50%}.ohide{overflow:hidden}.bbox{box-sizing:border-box}.pointer{cursor:pointer}.w100{width:100%}.b0{border:none}"
@@ -1494,7 +1481,6 @@
     return { compile, setDesignDocMode };
   }
 
-  // src/pseudo.ts
   function scanUnquotedUrl(css, i) {
     if (css[i] !== "u" && css[i] !== "U" || css.slice(i, i + 4).toLowerCase() !== "url(" || /[a-z0-9_-]/i.test(css[i - 1] ?? "")) {
       return -1;
@@ -1588,7 +1574,6 @@
     };
   }
 
-  // src/registry.ts
   function createRegistry() {
     const entries = /* @__PURE__ */ Object.create(null);
     function get(name) {
@@ -1618,7 +1603,6 @@
     };
   }
 
-  // src/runtime.ts
   var COMPONENT_DIR = ".";
   function createRuntime(doc = document) {
     const registry = createRegistry();
@@ -1788,7 +1772,6 @@
     };
   }
 
-  // src/stream-state.ts
   function createStreamTracker(staleMs = 6e4, now = Date.now) {
     const since = /* @__PURE__ */ new Map();
     const liveOne = (n) => {
@@ -1814,7 +1797,6 @@
     };
   }
 
-  // src/index.ts
   function hideRawTemplate() {
     const s = document.createElement("style");
     s.textContent = "x-dc{display:none!important}";
@@ -1876,16 +1858,8 @@
       },
       __dcStreaming: (name) => streams.live(name),
       __dcSetProps: (name, overrides) => runtime.setProps(name, overrides),
-      /** Name of the component currently mounted as the page root — DC tools
-       *  push their template-stream here when targeting "the open page". */
       __dcRootName: () => rootName,
-      /** Editor bridge — the encoded, `data-dc-tpl`-annotated template source.
-       *  The host editor parses this into its own template DOM so it can map a
-       *  rendered node (carrying the same `data-dc-tpl`) back to the source
-       *  node that emitted it. Returns the encoded form (`sc-camel-*` attrs,
-       *  `<sc-raw-*>`/`<sc-helmet>` tags); the editor decodes on serialize. */
       __dcAnnotatedTemplate: (name) => runtime.annotatedTemplate(name),
-      /** Editor bridge — the *original* (decoded) template source. */
       __dcTemplateSource: (name) => runtime.templateSource(name),
       __dcBoot: () => {
         rootName = boot(runtime, document) ?? rootName;
