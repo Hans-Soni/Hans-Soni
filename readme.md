@@ -1,5 +1,5 @@
 # Hans Soni - Personal Portfolio
-A high-performance, interactive personal portfolio website showcasing my software engineering projects, skills, and experience. This project uses a uniquely built, lightweight reactive frontend runtime (support.js) that seamlessly parses and renders custom HTML templates (<x-dc>) into efficient React components.
+A high-performance, interactive personal portfolio website showcasing my software engineering projects, skills, and experience. This project uses a uniquely built, lightweight reactive frontend runtime (support.js) that seamlessly parses and renders custom HTML templates into efficient React components.
 
 ## 🌐 Live Preview
 You can view the live portfolio deployed on either of the following platforms:
@@ -15,11 +15,11 @@ This repository is structured into a few key files and folders, each serving a d
 
 ### index.html
 Description: The main entry point and single-page template of the portfolio.
-Contents: It contains the complete structure of the website, including sections for Hero, About, Skills, Projects, Certifications, Education, and Contact. It utilizes a custom declarative tag syntax (e.g., <x-dc>, <helmet>, <sc-if>) and embedded JavaScript component logic (DCLogic) to manage states like theming (Light/Dark mode) and mobile navigation.
+Contents: It contains the complete structure of the website, including sections for Hero, About, Skills, Projects, Certifications, Education, and Contact. It utilizes a custom declarative tag syntax and embedded JavaScript component logic (DCLogic) to manage states like theming (Light/Dark mode) and mobile navigation.
 
 ### support.js
 Description: The powerhouse custom runtime engine of the application.
-Contents: A bespoke JavaScript runtime that acts as the bridge between the custom declarative HTML in index.html and React/ReactDOM. It manages template compilation, data binding (resolving {{ ... }} expressions), DOM updates, scroll observers, event handling, and rendering the custom cursor.
+Contents: A bespoke JavaScript runtime that acts as the bridge between the custom declarative HTML in index.html and React/ReactDOM. It manages template compilation, data binding (resolving expressions), DOM updates, scroll observers, event handling, and rendering the custom cursor.
 
 ## 2. assets/ Folder
 Contains all the static media and documents served on the website.
